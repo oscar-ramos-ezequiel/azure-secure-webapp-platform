@@ -22,7 +22,7 @@ def home():
                 <li>Linux</li>
                 <li>Python / Flask</li>
                 <li>GitHub</li>
-                <li>CI/CD - coming next</li>
+                <li>CI/CD with GitHub Actions</li>
                 <li>Terraform - coming next</li>
             </ul>
 
