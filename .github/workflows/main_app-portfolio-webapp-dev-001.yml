@@ -7,10 +7,12 @@ on:
   push:
     branches:
       - main
-    paths-ignore:
-      - 'README.md'
-      - 'docs/**'
-      - 'LICENSE'
+    paths:
+      - 'app.py'
+      - 'requirements.txt'
+      - 'templates/**'
+      - 'static/**'
+      - '.github/workflows/main_app-portfolio-webapp-dev-001.yml'
   workflow_dispatch:
 jobs:
   build:
