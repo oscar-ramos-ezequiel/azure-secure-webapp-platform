@@ -5,7 +5,7 @@ resource "azurerm_resource_group" "portfolio" {
   tags = {
     Environment = "Development"
     Project     = "Azure-Cloud-Portfolio"
-    ManagedBy   = "Terraform"
+    ManagedBy   = "Manual"
     Purpose     = "Learning"
   }
 }
@@ -16,6 +16,13 @@ resource "azurerm_service_plan" "portfolio" {
   location            = "France Central"
   os_type             = "Linux"
   sku_name            = "F1"
+
+  tags = {
+    Environment = "Development"
+    Project     = "Azure-Cloud-Portfolio"
+    ManagedBy   = "Manual"
+    Purpose     = "Learning"
+  }
 }
 
 resource "azurerm_linux_web_app" "portfolio" {
@@ -26,7 +33,24 @@ resource "azurerm_linux_web_app" "portfolio" {
 
   https_only = true
 
+  ftp_publish_basic_authentication_enabled       = false
+  webdeploy_publish_basic_authentication_enabled = false
+
+  app_settings = {
+    SCM_DO_BUILD_DURING_DEPLOYMENT = "1"
+  }
+
+  tags = {
+    Environment = "Development"
+    Project     = "Azure-Cloud-Portfolio"
+    ManagedBy   = "Manual"
+    Purpose     = "Learning"
+  }
+
   site_config {
+    always_on  = false
+    ftps_state = "FtpsOnly"
+
     application_stack {
       python_version = "3.14"
     }
