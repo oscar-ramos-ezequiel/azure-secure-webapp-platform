@@ -140,3 +140,5 @@ Both pipeline jobs completed successfully:
 - Deploy
 
 The updated application was deployed to Azure App Service without performing a manual deployment from the Azure Portal.
+
+CI/CD pipeline documentation updated.
