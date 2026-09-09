@@ -55,4 +55,11 @@ resource "azurerm_linux_web_app" "portfolio" {
       python_version = "3.14"
     }
   }
+
+ lifecycle {
+    ignore_changes = [
+      site_config[0].ip_restriction_default_action,
+      site_config[0].scm_ip_restriction_default_action
+    ]
+  }
 }
