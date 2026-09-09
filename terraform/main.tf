@@ -5,7 +5,7 @@ resource "azurerm_resource_group" "portfolio" {
   tags = {
     Environment = "Development"
     Project     = "Azure-Cloud-Portfolio"
-    ManagedBy   = "Manual"
+    ManagedBy   = "Terraform"
     Purpose     = "Learning"
   }
 }
@@ -20,7 +20,7 @@ resource "azurerm_service_plan" "portfolio" {
   tags = {
     Environment = "Development"
     Project     = "Azure-Cloud-Portfolio"
-    ManagedBy   = "Manual"
+    ManagedBy   = "Terraform"
     Purpose     = "Learning"
   }
 }
@@ -43,7 +43,7 @@ resource "azurerm_linux_web_app" "portfolio" {
   tags = {
     Environment = "Development"
     Project     = "Azure-Cloud-Portfolio"
-    ManagedBy   = "Manual"
+    ManagedBy   = "Terraform"
     Purpose     = "Learning"
   }
 
