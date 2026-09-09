@@ -3,13 +3,15 @@
 # More info on Python, GitHub Actions, and Azure App Service: https://aka.ms/python-webapps-actions
 
 name: Build and deploy Python app to Azure Web App - app-portfolio-webapp-dev-001
-
 on:
   push:
     branches:
       - main
+    paths-ignore:
+      - 'README.md'
+      - 'docs/**'
+      - 'LICENSE'
   workflow_dispatch:
-
 jobs:
   build:
     runs-on: ubuntu-latest
