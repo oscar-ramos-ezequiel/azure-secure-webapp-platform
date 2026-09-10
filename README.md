@@ -18,7 +18,7 @@ The solution includes automated CI/CD with GitHub Actions, passwordless authenti
 - Implement CI/CD with GitHub Actions
 - Manage infrastructure using Terraform
 - Apply Azure security best practices
-- Implement monitoring and observability
+
 
 ---
 
@@ -43,6 +43,7 @@ Microsoft Azure Subscription
             ├── Linux
             ├── Python runtime
             └── Public HTTPS access
+```
 ---
 
 ## Phase 2 - CI/CD with GitHub Actions
@@ -141,7 +142,6 @@ Both pipeline jobs completed successfully:
 
 The updated application was deployed to Azure App Service without performing a manual deployment from the Azure Portal.
 
-CI/CD pipeline documentation updated.
 
 ---
 
@@ -219,8 +219,6 @@ A final `terraform plan` confirmed:
 
 This validated that the Terraform configuration, remote state, and Azure infrastructure were synchronized.
 
-
-
 ---
 
 ## Phase 4 - Web Interface Improvement
@@ -242,3 +240,4 @@ azure-secure-webapp-platform/
 │   └── images/
 │       └── background.png
 └── requirements.txt
+```
