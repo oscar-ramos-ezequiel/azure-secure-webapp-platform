@@ -142,3 +142,79 @@ Both pipeline jobs completed successfully:
 The updated application was deployed to Azure App Service without performing a manual deployment from the Azure Portal.
 
 CI/CD pipeline documentation updated.
+
+---
+
+## Phase 3 - Infrastructure as Code with Terraform
+
+The Azure infrastructure was migrated from manually created resources to Infrastructure as Code using Terraform.
+
+### Terraform-managed resources
+
+Terraform manages:
+
+- Azure Resource Group
+- Linux App Service Plan
+- Linux Web App
+
+The existing Azure resources were imported into Terraform state instead of being recreated.
+
+### Terraform workflow
+
+    Terraform configuration
+            |
+            | terraform plan
+            v
+    Remote Terraform State
+            |
+            | Azure Storage
+            v
+    Azure Infrastructure
+
+### Remote State
+
+Terraform state is stored remotely in Azure Storage instead of locally.
+
+This provides persistent state even when Terraform is executed from an ephemeral Azure Cloud Shell session.
+
+The backend uses Microsoft Entra ID authentication instead of storing Storage Account access keys in the repository.
+
+### Importing Existing Infrastructure
+
+The Azure resources were initially created manually through the Azure Portal.
+
+They were imported into Terraform using `terraform import`, allowing Terraform to manage the existing infrastructure without recreating it.
+
+Imported resources:
+
+- Resource Group
+- App Service Plan
+- Linux Web App
+
+### Infrastructure Validation
+
+The Terraform configuration was aligned with the existing Azure infrastructure until Terraform reported:
+
+    No changes. Your infrastructure matches the configuration.
+
+A controlled Infrastructure as Code change was then performed by updating the `ManagedBy` tag from:
+
+    Manual
+
+to:
+
+    Terraform
+
+Terraform showed:
+
+    Plan: 0 to add, 3 to change, 0 to destroy.
+
+After applying the plan:
+
+    Apply complete! Resources: 0 added, 3 changed, 0 destroyed.
+
+A final `terraform plan` confirmed:
+
+    No changes. Your infrastructure matches the configuration.
+
+This validated that the Terraform configuration, remote state, and Azure infrastructure were synchronized.
