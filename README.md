@@ -3,9 +3,9 @@
 A hands-on Azure Cloud Engineering portfolio project focused on building,
 deploying and evolving a secure Python web application on Microsoft Azure.
 
-The project starts with a manual Azure deployment and will progressively
-evolve toward Infrastructure as Code, CI/CD, security, monitoring and
-cloud automation.
+This project demonstrates the end-to-end deployment and management of a Python web application on Microsoft Azure.
+
+The solution includes automated CI/CD with GitHub Actions, passwordless authentication using OIDC and Managed Identity, Infrastructure as Code with Terraform, remote Terraform state in Azure Storage, and a responsive Flask web interface.
 
 ## 🎯 Project Objectives
 
@@ -218,3 +218,27 @@ A final `terraform plan` confirmed:
     No changes. Your infrastructure matches the configuration.
 
 This validated that the Terraform configuration, remote state, and Azure infrastructure were synchronized.
+
+
+
+---
+
+## Phase 4 - Web Interface Improvement
+
+The original Flask application used inline HTML inside `app.py`.
+
+The application structure was improved by separating application logic, HTML templates, CSS, and static assets.
+
+### Application structure
+
+```text
+azure-secure-webapp-platform/
+├── app.py
+├── templates/
+│   └── index.html
+├── static/
+│   ├── css/
+│   │   └── style.css
+│   └── images/
+│       └── background.png
+└── requirements.txt
